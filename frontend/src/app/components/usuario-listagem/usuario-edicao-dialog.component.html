@@ -1,0 +1,46 @@
+<h2 mat-dialog-title class="titulo-modal">{{ labelsEdicao.tituloModal }}</h2>
+
+<mat-dialog-content>
+  <form [formGroup]="formularioEdicao" class="formulario">
+    <p class="erro" *ngIf="mensagemErro">{{ mensagemErro }}</p>
+
+    <mat-form-field appearance="outline">
+      <mat-label>{{ labelsCadastro.nome }}</mat-label>
+      <input matInput type="text" formControlName="nome" />
+      <mat-error *ngIf="formularioEdicao.get('nome')?.hasError('required')">{{ labelsCadastro.erroNomeObrigatorio }}</mat-error>
+      <mat-error *ngIf="formularioEdicao.get('nome')?.hasError('minlength')">{{ labelsCadastro.erroNomeMinimo }}</mat-error>
+      <mat-error *ngIf="formularioEdicao.get('nome')?.hasError('maxlength')">{{ labelsCadastro.erroNomeMaximo }}</mat-error>
+      <mat-error *ngIf="formularioEdicao.get('nome')?.hasError('backend')">{{ formularioEdicao.get('nome')?.getError('backend') }}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>{{ labelsCadastro.email }}</mat-label>
+      <input matInput type="email" formControlName="email" />
+      <mat-error *ngIf="formularioEdicao.get('email')?.hasError('required')">{{ labelsCadastro.erroEmailObrigatorio }}</mat-error>
+      <mat-error *ngIf="formularioEdicao.get('email')?.hasError('email')">{{ labelsCadastro.erroEmailInvalido }}</mat-error>
+      <mat-error *ngIf="formularioEdicao.get('email')?.hasError('backend')">{{ formularioEdicao.get('email')?.getError('backend') }}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>{{ labelsCadastro.senha }}</mat-label>
+      <input matInput type="password" formControlName="senha" />
+      <mat-error *ngIf="formularioEdicao.get('senha')?.hasError('required')">{{ labelsCadastro.erroSenhaObrigatoria }}</mat-error>
+      <mat-error *ngIf="formularioEdicao.get('senha')?.hasError('minlength')">{{ labelsCadastro.erroSenhaMinima }}</mat-error>
+      <mat-error *ngIf="formularioEdicao.get('senha')?.hasError('maxlength')">{{ labelsCadastro.erroSenhaMaxima }}</mat-error>
+      <mat-error *ngIf="formularioEdicao.get('senha')?.hasError('backend')">{{ formularioEdicao.get('senha')?.getError('backend') }}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>{{ labelsCadastro.confirmacaoSenha }}</mat-label>
+      <input matInput type="password" formControlName="confirmacaoSenha" />
+      <mat-error *ngIf="formularioEdicao.get('confirmacaoSenha')?.hasError('required')">{{ labelsCadastro.erroConfirmacaoObrigatoria }}</mat-error>
+      <mat-error *ngIf="formularioEdicao.get('confirmacaoSenha')?.hasError('senhasDiferentes')">{{ labelsEdicao.erroConfirmacaoDiferente }}</mat-error>
+      <mat-error *ngIf="formularioEdicao.get('confirmacaoSenha')?.hasError('backend')">{{ formularioEdicao.get('confirmacaoSenha')?.getError('backend') }}</mat-error>
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button type="button" (click)="cancelar()" [disabled]="salvando">{{ labelsEdicao.botaoCancelar }}</button>
+  <button mat-flat-button color="primary" type="button" (click)="salvar()" [disabled]="salvando">{{ labelsEdicao.botaoSalvar }}</button>
+</mat-dialog-actions>

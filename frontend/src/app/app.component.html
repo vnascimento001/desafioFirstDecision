@@ -1,0 +1,16 @@
+<main class="layout">
+  <mat-toolbar class="topbar">
+    <div class="brand">
+      <h1>{{ labels.brandTitle }}</h1>
+      <p>{{ labels.brandSubtitle }}</p>
+    </div>
+    <nav class="menu">
+      <a mat-stroked-button [routerLink]="routes.cadastroLink" routerLinkActive="active">{{ labels.menuCadastro }}</a>
+      <a mat-stroked-button [routerLink]="routes.usuariosLink" routerLinkActive="active">{{ labels.menuListagem }}</a>
+    </nav>
+  </mat-toolbar>
+
+  <mat-card class="content">
+    <router-outlet></router-outlet>
+  </mat-card>
+</main>

@@ -1,0 +1,19 @@
+.titulo-modal {
+  margin: 0 0 14px;
+}
+
+.formulario {
+  display: grid;
+  gap: 4px;
+  margin-top: 4px;
+  min-width: 360px;
+}
+
+.erro {
+  color: #b91c1c;
+  margin: 0 0 8px;
+}
+
+mat-form-field {
+  width: 100%;
+}

@@ -1,0 +1,67 @@
+@import "@angular/material/prebuilt-themes/indigo-pink.css";
+
+:root {
+  --fd-primary: #005f99;
+  --fd-primary-dark: #003e63;
+  --fd-accent: #00a6d6;
+  --fd-bg-1: #f4f8fc;
+  --fd-bg-2: #e8f2fb;
+  --fd-bg-3: #f0f7ff;
+  --fd-text: #10243c;
+  --fd-card: #ffffff;
+  --fd-shadow: 0 18px 48px rgba(16, 36, 60, 0.1);
+}
+
+html,
+body {
+  background: radial-gradient(circle at 8% 12%, var(--fd-bg-2), transparent 30%),
+    radial-gradient(circle at 88% 0%, var(--fd-bg-3), transparent 34%), var(--fd-bg-1);
+  margin: 0;
+  min-height: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  color: var(--fd-text);
+  font-family: "Manrope", "Segoe UI", Tahoma, sans-serif;
+}
+
+.mat-mdc-unelevated-button.mat-primary {
+  --mdc-filled-button-container-color: var(--fd-primary);
+  --mdc-filled-button-label-text-color: #ffffff;
+}
+
+.mat-mdc-unelevated-button.mat-primary:hover {
+  --mdc-filled-button-container-color: var(--fd-primary-dark);
+}
+
+.mat-mdc-outlined-button.mat-primary {
+  --mdc-outlined-button-label-text-color: var(--fd-primary);
+  --mdc-outlined-button-outline-color: #8ab7d3;
+}
+
+.mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__leading,
+.mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__notch,
+.mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__trailing {
+  border-color: #b7d0e3;
+}
+
+.mdc-text-field--outlined.mdc-text-field--focused:not(.mdc-text-field--disabled) .mdc-notched-outline__leading,
+.mdc-text-field--outlined.mdc-text-field--focused:not(.mdc-text-field--disabled) .mdc-notched-outline__notch,
+.mdc-text-field--outlined.mdc-text-field--focused:not(.mdc-text-field--disabled) .mdc-notched-outline__trailing {
+  border-color: var(--fd-primary);
+}
+
+.mat-mdc-form-field.mat-focused .mat-mdc-floating-label,
+.mat-mdc-form-field.mat-focused .mdc-floating-label {
+  color: var(--fd-primary) !important;
+}
+
+.mat-mdc-paginator .mat-mdc-icon-button,
+.mat-sort-header-arrow,
+.mat-sort-header-container.mat-sort-header-sorted .mat-sort-header-content {
+  color: var(--fd-primary);
+}
