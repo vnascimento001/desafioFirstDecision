@@ -71,7 +71,7 @@ class UsuarioServiceTest {
         BusinessException ex = assertThrows(BusinessException.class,
                 () -> usuarioService.cadastrarUsuario(req));
 
-        assertEquals("A confirmacao de senha nao confere", ex.getMessage());
+        assertEquals("A confirmação de senha não confere", ex.getMessage());
         verify(usuarioRepository, never()).existsByEmail(any());
         verify(passwordEncoder, never()).encode(any());
         verify(usuarioRepository, never()).save(any());
@@ -85,7 +85,7 @@ class UsuarioServiceTest {
         BusinessException ex = assertThrows(BusinessException.class,
                 () -> usuarioService.cadastrarUsuario(req));
 
-        assertEquals("Ja existe um usuario com este e-mail", ex.getMessage());
+        assertEquals("Email já cadastrado", ex.getMessage());
         verify(passwordEncoder, never()).encode(any());
         verify(usuarioRepository, never()).save(any());
     }
@@ -166,7 +166,7 @@ class UsuarioServiceTest {
         BusinessException ex = assertThrows(BusinessException.class,
                 () -> usuarioService.editarUsuario(7L, req));
 
-        assertEquals("Ja existe um usuario com este e-mail", ex.getMessage());
+        assertEquals("Email já cadastrado", ex.getMessage());
         verify(usuarioRepository, never()).save(any());
     }
 
@@ -178,7 +178,7 @@ class UsuarioServiceTest {
         BusinessException ex = assertThrows(BusinessException.class,
                 () -> usuarioService.editarUsuario(99L, req));
 
-        assertEquals("Usuario nao encontrado", ex.getMessage());
+        assertEquals("Usuário não encontrado", ex.getMessage());
     }
 
     @Test
@@ -191,7 +191,7 @@ class UsuarioServiceTest {
         BusinessException ex = assertThrows(BusinessException.class,
                 () -> usuarioService.editarUsuario(8L, req));
 
-        assertEquals("A confirmacao de senha nao confere", ex.getMessage());
+        assertEquals("A confirmação de senha não confere", ex.getMessage());
         verify(usuarioRepository, never()).save(any());
     }
 
@@ -212,7 +212,7 @@ class UsuarioServiceTest {
         BusinessException ex = assertThrows(BusinessException.class,
                 () -> usuarioService.deletarUsuario(12L));
 
-        assertEquals("Usuario nao encontrado", ex.getMessage());
+        assertEquals("Usuário não encontrado", ex.getMessage());
         verify(usuarioRepository, never()).delete(any());
     }
 
@@ -232,7 +232,7 @@ class UsuarioServiceTest {
         BusinessException ex = assertThrows(BusinessException.class,
                 () -> usuarioService.validarRequisicaoDeCadastro(req));
 
-        assertEquals("Ja existe um usuario com este e-mail", ex.getMessage());
+        assertEquals("Email já cadastrado", ex.getMessage());
     }
 
     @Test
@@ -244,7 +244,7 @@ class UsuarioServiceTest {
         BusinessException ex = assertThrows(BusinessException.class,
                 () -> usuarioService.validarRequisicaoDeEdicao(atual, req));
 
-        assertEquals("Ja existe um usuario com este e-mail", ex.getMessage());
+        assertEquals("Email já cadastrado", ex.getMessage());
     }
 
     @Test
@@ -254,7 +254,7 @@ class UsuarioServiceTest {
         BusinessException ex = assertThrows(BusinessException.class,
                 () -> usuarioService.validarConfirmacaoDeSenha(req));
 
-        assertEquals("A confirmacao de senha nao confere", ex.getMessage());
+        assertEquals("A confirmação de senha não confere", ex.getMessage());
     }
 
     @Test
@@ -264,7 +264,7 @@ class UsuarioServiceTest {
         BusinessException ex = assertThrows(BusinessException.class,
                 () -> usuarioService.validarEmailDisponivelParaCadastro("ana@email.com"));
 
-        assertEquals("Ja existe um usuario com este e-mail", ex.getMessage());
+        assertEquals("Email já cadastrado", ex.getMessage());
     }
 
     @Test
@@ -293,7 +293,7 @@ class UsuarioServiceTest {
         BusinessException ex = assertThrows(BusinessException.class,
                 () -> usuarioService.buscarUsuarioPorEmailOuFalhar("ana@email.com"));
 
-        assertEquals("Credenciais invalidas", ex.getMessage());
+        assertEquals("Credenciais inválidas", ex.getMessage());
     }
 
     @Test
@@ -313,7 +313,7 @@ class UsuarioServiceTest {
         BusinessException ex = assertThrows(BusinessException.class,
                 () -> usuarioService.buscarUsuarioPorIdOuFalhar(1L));
 
-        assertEquals("Usuario nao encontrado", ex.getMessage());
+        assertEquals("Usuário não encontrado", ex.getMessage());
     }
 
     @Test
@@ -323,7 +323,7 @@ class UsuarioServiceTest {
         BusinessException ex = assertThrows(BusinessException.class,
                 () -> usuarioService.validarSenhaInformada("informada", "hash"));
 
-        assertEquals("Credenciais invalidas", ex.getMessage());
+        assertEquals("Credenciais inválidas", ex.getMessage());
     }
     
     @Test
